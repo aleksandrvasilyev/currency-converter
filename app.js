@@ -19,6 +19,9 @@ app.get("/", async (req, res) => {
   res.render("index", { data, date, emojis });
 });
 
+app.get("/about", (req, res) => {
+  res.send("about");
+});
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
