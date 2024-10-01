@@ -3,7 +3,7 @@ import { getCurrencies } from "./service/api.js";
 import { emojisContainer } from "./service/emojis.js";
 const app = express();
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 
 app.set("view engine", "ejs");
 app.set("views", "views");
