@@ -20,7 +20,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send("about");
+  res.send("about page");
 });
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
