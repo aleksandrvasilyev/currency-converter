@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app",
+    "start": "nodemon --env-file=.env app",
     "dev": "concurrently --kill-others \"nodemon app\" \"postcss ./public/styles/tailwinds.css -o ./public/styles/style.css --watch\""
   },
   "keywords": [],

@@ -3,6 +3,8 @@ import { getCurrencies } from "./service/api.js";
 import { emojisContainer } from "./service/emojis.js";
 const app = express();
 
+const PORT = process.env.PORT || 3003;
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
@@ -17,6 +19,6 @@ app.get("/", async (req, res) => {
   res.render("index", { data, date, emojis });
 });
 
-app.listen(1234, () => {
-  console.log("Server runs on 1234 port");
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
