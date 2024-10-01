@@ -10,13 +10,23 @@ const getCurrency = (event, input) => {
       reCount(input, input.value);
     }
   }
+
+  if (input.value === "") {
+    clearAllInputs();
+  }
+};
+
+const clearAllInputs = () => {
+  inputs.forEach((input) => {
+    input.value = "";
+  });
 };
 
 const reCount = (input, value) => {
   const currencies = Array.from(inputs).filter((item) => item.id !== input.id);
 
   currencies.forEach((element) => {
-    if (input.id === "eur") {
+    if (input.id === "usd") {
       element.value = Number(value * element.dataset.value).toFixed(2);
     } else {
       element.value = Number(

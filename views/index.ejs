@@ -3,48 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Currency Converter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Currency converter</title>
 </head>
 
 <body>
     <%- include('partials/header') %>
-        <div class="max-w-[65rem] mb-5 m-auto pl-8">
-            Current date: <span class="text-green-700">
-                <%= date %>
-            </span>
-        </div>
-        <div class="container max-w-[65rem]">
 
-            <% for (let key in data) { %>
-                <div class="element md:flex md:items-center mb-6">
-                    <div class="w-1/5 text-right justify-end flex">
-                        <label for="<%= key %>" class=" uppercase block text-gray-500 font-bold  mb-1 md:mb-0 pr-4">
-                            <div class="flex gap-2">
-                                <span>
-                                    <%= emojis[key] %>
-                                </span>
-                                <span>
-                                    <%= key %>
-                                </span>
+        <section class="bg-gray-100 py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl font-bold mb-6">Online Currency Converter</h1>
+                <p class="text-xl text-gray-700 mb-8">
+                    Check the latest currency exchange rates and convert them online quickly and conveniently.</p>
+                <a href="#converter" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">
+                    Start Converting</a>
+            </div>
+        </section>
+
+
+        <section id="converter" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">Currency Converter</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <% for (let key in data) { %>
+                        <div class="element flex items-center mb-6">
+                            <div class="w-1/5 text-right justify-end flex">
+                                <label for="<%= key %>"
+                                    class="uppercase block text-gray-500 font-bold mb-1 md:mb-0 pr-4">
+                                    <div class="flex gap-2">
+                                        <span>
+                                            <%= emojis[key] %>
+                                        </span>
+                                        <span>
+                                            <%= key %>
+                                        </span>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                    </div>
-                    <div class="w-4/5">
-                        <input
-                            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                            id="<%= key %>" type="text" value="<%= Number(data[key]).toFixed(2) %>"
-                            data-value="<%= data[key] %>">
-                    </div>
+                            <div class="w-4/5">
+                                <input
+                                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                    id="<%= key %>" type="text" value="<%= Number(data[key]).toFixed(2) %>"
+                                    data-value="<%= data[key] %>">
+                            </div>
+                        </div>
+                        <% } %>
                 </div>
+            </div>
+        </section>
+
+
+        <section class="bg-gray-100 py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">Useful Information About Currencies</h2>
+                <div class="max-w-4xl mx-auto text-gray-700 leading-relaxed">
+                    <p class="mb-6">
+                        Currency exchange rates fluctuate constantly due to various economic and political factors. Our
+                        currency converter helps you stay up-to-date with the latest rates and quickly convert amounts
+                        from
+                        one currency to another.
+                    </p>
+                    <p class="mb-6">
+                        Use our service to plan trips abroad, track changes in the currency market, or simply to stay
+                        informed about current global currency rates.
+                    </p>
+                    <p class="mb-6">
+                        Please note that exchange rates may differ at various banks and exchange points. Always check
+                        the
+                        exact rate before making transactions.
+                    </p>
+                </div>
+            </div>
+        </section>
 
 
 
-                <% } %>
-
-        </div>
-        <script src="./script.js"></script>
+        <%- include('partials/footer') %>
+            <script src="./script.js"></script>
 </body>
 
 </html>

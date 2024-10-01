@@ -13,8 +13,8 @@ export const fetchData = async (url) => {
 
 export const getCurrencies = async (url) => {
   const popularCurrencies = [
-    "eur",
     "usd",
+    "eur",
     "pln",
     "jpy",
     "gbp",
@@ -37,8 +37,8 @@ export const getCurrencies = async (url) => {
   const result = {};
   const data = await fetchData(url);
   popularCurrencies.forEach((currency) => {
-    if (Object.keys(data.eur).includes(currency)) {
-      result[currency] = data.eur[currency];
+    if (Object.keys(data.usd).includes(currency)) {
+      result[currency] = data.usd[currency];
     }
   });
   // console.log(result);
