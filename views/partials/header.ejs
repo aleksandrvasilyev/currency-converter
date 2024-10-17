@@ -6,6 +6,13 @@
                 <li><a href="#" class="text-gray-600 hover:text-gray-800">Home</a></li>
                 <li><a href="#" class="text-gray-600 hover:text-gray-800">About Us</a></li>
                 <li><a href="#" class="text-gray-600 hover:text-gray-800">Contact</a></li>
+                <!-- <li> <select onchange="window.location.href=this.value">
+                        <option value="<%= urlFor(req.url) %>" <%=language==='en' ? 'selected' : '' %>>English</option>
+                        <option value="<%= urlFor('/ru' + req.url) %>" <%=language==='ru' ? 'selected' : '' %>>Русский
+                        </option>
+                        <option value="<%= urlFor('/de' + req.url) %>" <%=language==='de' ? 'selected' : '' %>>Deutsch
+                        </option>
+                    </select></li> -->
             </ul>
         </nav>
     </div>
