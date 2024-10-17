@@ -13,7 +13,8 @@
   "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "i18n": "^0.15.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",
