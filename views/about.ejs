@@ -1,3 +1,37 @@
-<h1>
-    <%= t('about') %>
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <section class="bg-gray-100 py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl font-bold mb-6">
+                    <%= t('Online Currency Converter') %>
+
+                </h1>
+                <h2>
+                    <%= t('about') %>
+                </h2>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <%- include('partials/footer') %>
+            <script src="../script.js"></script>
+</body>
+
+</html>

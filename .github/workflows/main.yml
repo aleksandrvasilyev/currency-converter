@@ -23,5 +23,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@157.90.18.95 << 'EOF'
             cd /var/www/currency-converter.getwebsite.org/html/
             git pull origin main
+            npm install
             pm2 restart currency-converter
           EOF

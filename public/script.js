@@ -41,3 +41,18 @@ inputs.forEach((input) => {
     getCurrency(event, input);
   });
 });
+
+const dropdownButton = document.getElementById("dropdownButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+
+// Добавляем обработчик события для клика по кнопке
+dropdownButton.addEventListener("click", () => {
+  dropdownMenu.classList.toggle("hidden");
+});
+
+// Закрытие dropdown, если клик произошел вне меню
+window.addEventListener("click", function (e) {
+  if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+    dropdownMenu.classList.add("hidden");
+  }
+});

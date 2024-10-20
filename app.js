@@ -33,7 +33,6 @@ await i18next
   });
 
 app.use(i18nextMiddleware.handle(i18next));
-
 const localizationMiddleware = (req, res, next) => {
   const supportedLangs = ["ru", "de", "en"];
   const urlParts = req.url.split("/");
@@ -47,13 +46,20 @@ const localizationMiddleware = (req, res, next) => {
 
   req.i18n.changeLanguage(req.language);
 
-  res.locals.urlFor = (path) => {
-    return req.language === "en" ? path : `/${req.language}${path}`;
+  res.locals.urlFor = (path, lang) => {
+    let cleanPath = path.replace(/^\/(?:ru|de|en)/, "");
+
+    if (cleanPath === "") cleanPath = "/";
+
+    if (lang && lang !== "en") {
+      return `/${lang}${cleanPath}`;
+    } else {
+      return cleanPath;
+    }
   };
 
   next();
 };
-
 app.use(localizationMiddleware);
 
 app.get("/", async (req, res) => {
@@ -66,10 +72,14 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about", {
-    t: req.t,
-    req: req,
-  });
+  // res.render("about", {
+  //   t: req.t,
+  //   req: req,
+  // });
+
+  const date = "2024"; // hardcoded -> remove or change
+
+  res.render("about", { date, t: req.t, req: req });
 });
 
 app.use((req, res) => {
