@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+
+<html lang="<%- language %>">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+
+    <!-- add another languages and dynamically add page -->
+    <!-- <link rel="alternate" hreflang="en" href="https://website.com/about" /> -->
+    <!-- <link rel="alternate" hreflang="de" href="https://website.com/de/about" /> -->
+    <link rel="alternate" hreflang="en" href="https://website.com/" />
+    <link rel="alternate" hreflang="de" href="https://website.com/de/" />
+    <link rel="alternate" hreflang="ru" href="https://website.com/ru/" />
+    <link rel="alternate" hreflang="es" href="https://website.com/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://website.com/" />
+    <!--  -->
+
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <%- body %>
+
+            <%- include('../partials/footer') %>
+                <script src="/script.js"></script>
+</body>
+
+</html>

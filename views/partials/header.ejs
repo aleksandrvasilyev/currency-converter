@@ -1,16 +1,21 @@
 <header class="bg-white shadow">
     <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div class="text-2xl font-bold"><a href="/">Currency Converter</a></div>
+        <div class="text-2xl font-bold"><a href="<%= link('/') %>">Currency Converter</a></div>
         <nav>
             <ul class="flex space-x-6 items-center">
-                <li><a href="/" class="text-gray-600 hover:text-gray-800">Home</a></li>
-                <li><a href="/about" class="text-gray-600 hover:text-gray-800">About Us</a></li>
+                <li><a href="<%= link('/') %>" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                <li><a href="<%= link('/about') %>" class="text-gray-600 hover:text-gray-800">About Us</a></li>
                 <li><a href="#" class="text-gray-600 hover:text-gray-800">Contact</a></li>
 
                 <li class="relative">
                     <button id="dropdownButton"
                         class="text-gray-600 hover:text-gray-800 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-600 rounded inline-flex items-center">
-                        <span>Select Language</span>
+                        <!-- <span>Select Language</span> -->
+                        <span>
+                            <%- lang %>
+
+
+                        </span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
@@ -18,40 +23,36 @@
                         </svg>
                     </button>
 
-                    <!-- Dropdown список языков с прокруткой -->
+
                     <ul id="dropdownMenu"
                         class="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-lg overflow-y-auto max-h-48 z-10 hidden">
-                        <li><a href="<%= urlFor(req.url, 'en') %>"
-                                class="block px-4 py-2 text-gray-600 hover:bg-gray-100 <%= language === 'en' ? 'font-bold' : '' %>">🇬🇧 English</a>
+                        <li><a href="<%= changeLangLink('en') %>"
+                                class="block px-4 py-2 text-gray-600 hover:bg-gray-100 <%= language === 'en' ? 'font-bold' : '' %>"
+                                data-lang="en">
+                                🇬🇧 English</a>
                         </li>
-                        <li><a href="<%= urlFor(req.url, 'ru') %>"
-                                class="block px-4 py-2 text-gray-600 hover:bg-gray-100 <%= language === 'ru' ? 'font-bold' : '' %>">🔤 Русский</a>
+                        <li><a href="<%= changeLangLink('ru') %>"
+                                class="block px-4 py-2 text-gray-600 hover:bg-gray-100 <%= language === 'ru' ? 'font-bold' : '' %>"
+                                data-lang="ru">
+                                🇷🇺 Русский</a>
                         </li>
-                        <li><a href="<%= urlFor(req.url, 'de') %>"
-                                class="block px-4 py-2 text-gray-600 hover:bg-gray-100 <%= language === 'de' ? 'font-bold' : '' %>">🇩🇪 Deutsch</a>
+                        <li><a href="<%= changeLangLink('de') %>"
+                                class="block px-4 py-2 text-gray-600 hover:bg-gray-100 <%= language === 'de' ? 'font-bold' : '' %>"
+                                data-lang="de">
+                                🇩🇪 Deutsch</a>
                         </li>
-                        <!-- Добавьте больше языков, если нужно -->
-                        <li><a href="<%= urlFor(req.url, 'fr') %>"
+
+
+                        <li><a href="<%= changeLangLink('fr') %>"
                                 class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Français</a></li>
-                        <li><a href="<%= urlFor(req.url, 'es') %>"
+                        <li><a href="<%= changeLangLink('es') %>"
                                 class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Español</a></li>
-                        <!-- Пример для прокрутки -->
-                        <li><a href="<%= urlFor(req.url, 'it') %>"
+                        <li><a href="<%= changeLangLink('it') %>"
                                 class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Italiano</a></li>
-                        <li><a href="<%= urlFor(req.url, 'jp') %>"
+                        <li><a href="<%= changeLangLink('jp') %>"
                                 class="block px-4 py-2 text-gray-600 hover:bg-gray-100">日本語</a></li>
                     </ul>
                 </li>
-
-                <!-- 
-                <li> <select onchange="window.location.href=this.value">
-                        <option value="<%= urlFor(req.url) %>" <%=language==='en' ? 'selected' : '' %>>English</option>
-                        <option value="<%= urlFor('/ru' + req.url) %>" <%=language==='ru' ? 'selected' : '' %>>Русский
-                        </option>
-                        <option value="<%= urlFor('/de' + req.url) %>" <%=language==='de' ? 'selected' : '' %>>Deutsch
-                        </option>
-                    </select></li> -->
-
             </ul>
         </nav>
     </div>
