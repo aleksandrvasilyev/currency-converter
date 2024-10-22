@@ -68,7 +68,6 @@ const dropdownLanguages = () => {
       const link = li.querySelector("a");
       if (link) {
         const selectedLang = link.getAttribute("data-lang");
-        console.log(selectedLang);
         localStorage.setItem("selectedLanguage", selectedLang);
       }
     });
@@ -76,28 +75,31 @@ const dropdownLanguages = () => {
 };
 
 const redirectToLanguage = () => {
-  const supportedLangs = ["ru", "de", "en"];
-  const url = window.location.pathname;
   const storageLanguage = localStorage.getItem("selectedLanguage");
-  const urlLanguage = document.querySelector("html").lang;
+  if (storageLanguage) {
+    const supportedLangs = ["ru", "de", "en"];
+    const url = window.location.pathname;
+    // const storageLanguage = localStorage.getItem("selectedLanguage");
+    const urlLanguage = document.querySelector("html").lang;
 
-  if (urlLanguage !== storageLanguage) {
-    const urls = url.split("/");
-    if (!supportedLangs.includes(urls[1])) {
-      window.location.replace("/" + storageLanguage + url);
-    } else {
-      // urls.splice(1, 1);
-      // window.location.replace("/" + storageLanguage + urls.join("/"));
-
-      // window.location.replace(
-      //   "/" + storageLanguage + "/" + urls.slice(2).join("/")
-      // );
-
-      if (storageLanguage === "en") {
-        window.location.href = "/" + urls.slice(2).join("/");
+    if (urlLanguage !== storageLanguage) {
+      const urls = url.split("/");
+      if (!supportedLangs.includes(urls[1])) {
+        window.location.replace("/" + storageLanguage + url);
       } else {
-        window.location.href =
-          "/" + storageLanguage + "/" + urls.slice(2).join("/");
+        // urls.splice(1, 1);
+        // window.location.replace("/" + storageLanguage + urls.join("/"));
+
+        // window.location.replace(
+        //   "/" + storageLanguage + "/" + urls.slice(2).join("/")
+        // );
+
+        if (storageLanguage === "en") {
+          window.location.href = "/" + urls.slice(2).join("/");
+        } else {
+          window.location.href =
+            "/" + storageLanguage + "/" + urls.slice(2).join("/");
+        }
       }
     }
   }
