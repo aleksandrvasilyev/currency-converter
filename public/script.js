@@ -1,4 +1,5 @@
 const inputs = document.querySelectorAll("input");
+
 const currency = () => {
   const getCurrency = (event, input) => {
     const isDigit = /^\d+$/.test(event.key);
