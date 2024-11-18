@@ -29,6 +29,8 @@ const languages = {
   de: "🇩🇪 Deutsch",
 };
 
+const supportedLanguages = Object.keys(languages);
+
 await i18next
   .use(Backend)
   .use(i18nextMiddleware.LanguageDetector)
@@ -37,7 +39,7 @@ await i18next
       loadPath: path.join(__dirname, "./locales/{{lng}}.json"),
     },
     fallbackLng: "en",
-    supportedLngs: ["en", "ru", "de"],
+    supportedLngs: supportedLanguages,
     // preload: ["en", "ru", "de"],
     defaultNS: "translation",
   });
